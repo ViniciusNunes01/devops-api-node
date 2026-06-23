@@ -37,17 +37,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            mail to: 'seu-email@gmail.com',
-                 subject: "✅ Sucesso: Pipeline ${JOB_NAME} - Build #${BUILD_NUMBER}",
-                 body: "Olá! O Job do Node.js foi executado com sucesso. O novo container está ativo na porta ${PORTA_HOST}."
-        }
-        failure {
-            mail to: 'seu-email@gmail.com',
-                 subject: "❌ Falha: Pipeline ${JOB_NAME} - Build #${BUILD_NUMBER}",
-                 body: "Atenção! Ocorreu um erro no build do Node.js. Verifique o Console Output no Jenkins."
-        }
-    }
 }
