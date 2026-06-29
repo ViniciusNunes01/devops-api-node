@@ -1,9 +1,11 @@
-require('dotenv').config(); // CORRIGIDO: Carrega as variáveis do arquivo .env
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // <-- 1. Adicione a importação aqui
 const leituraRoutes = require('./routes/leituraRoutes');
 
 const app = express();
+app.use(cors()); // <-- 2. Libere o acesso logo após inicializar o app
 app.use(express.json());
 
 // CORRIGIDO: Conecta usando a variável de ambiente segura
